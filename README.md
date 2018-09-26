@@ -1,34 +1,23 @@
-LIRI Bot
+# liri-node-app
 
+## Requirements
+- Make a Node.js app that depends on user input from the command line
+- Integrate Twitter, Spotify, and OMDb APIs via the appropriate NPM modules
+- Use API calls and parse through returned JSON objects, outputting them in a specified format
+- Read commands and queries from file
 
-Overview
+## Technologies Used
+- Node.js
+- JavaScript
+- Twitter API (via twitter npm module)
+- Spotify API (via spotify npm module)
+- OMDb API (via request npm module)
 
-In this assignment, you will make LIRI. LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
-
-
-Before You Begin
-
-
-LIRI will display your latest tweets. As we do not want to display your personal account, or its keys, please make an alias account and add a few tweets to it!
-Make a new GitHub repository called liri-node-app and clone it to your computer.
-To retrieve the data that will power this app, you'll need to send requests to the Twitter, Spotify and OMDB APIs. You'll find these Node packages crucial for your assignment.
-
-
-
-Twitter
-Node-Spotify-API
-
-Request
-
-
-You'll use Request to grab data from the OMDB API.
-
-
-DotEnv
-
-
-
-Submission on BCS
-
-
-Please submit the link to the Github Repository!
+## Code Explanation
+- Authentication keys for Twitter are stored in "keys.js", and we are exporting its contents to the main "liri.js" file
+- What our app does depends on what the user types, and there are 4 main functions: (1) prints latest tweets, (2) Spotify lookup for a song, (3) OMDb lookup for a movie, and (4) read command and query from another file
+- The program makes a request to the Twitter API that is limited by parameters -- username and number of tweets, and we get back a JSON object that includes an array of the 20 most recent tweets; from there, we selectively output using console.log
+- The program also makes a request to the Spotify API, and we get back a JSON object that includes everything we need (artist(s), song, preview link, and album)
+- The program also makes a HTTP request to the OMDb API using the request NPM module, and we get back a JSON object that includes everything we need (title, year, IMDb rating, language, etc.)
+- The program also reads from a file called "random.text" and executes the command and query found there using string and array methods
+- Appropriate comments and error-checking has been added
